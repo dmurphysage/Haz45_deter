@@ -303,6 +303,8 @@ c            Pass along fault grid locations for calculation of HW and Rx values
      5             distJB, distRup, ZTOR, distSeismo, distepi, disthypo, HWFlag,
      6             dipavg, n1, n2, Rx, Ry, Ry0, icellRupstrike, icellRupdip, dip, iFltWidth, iFlt) 
 
+           
+             
 c             Loop over ftypes
               do 561 iFtype=1,nFtype(iFlt)
 
@@ -348,6 +350,9 @@ c                Compute the median and sigma of the ground motions
      4               disthypo, depthvs10, depthvs15, D25, tau,
      5               zTOR, theta_site, RupWidth, vs30_class, forearc, Rx, phi,
      6               cfcoefrrup, cfcoefrjb, Ry0 )
+
+             write (18,'(i5,11F8.2,3i5,2f8.3)')  iFlt, distjb, distRup, ZTOR, distSeismo, distepi, disthypo,
+     1             dipavg, Rx, Ry, hypodepth, mag, HWFlag, iProb, iAtten, lgInten, sigmay
 
 c                Add epistemic uncertainty term (constant shift) to median
                  lgInten = lgInten + gmScale(iProb,jType,iAtten)
